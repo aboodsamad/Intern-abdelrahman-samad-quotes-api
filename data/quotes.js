@@ -14,3 +14,10 @@ export function getQuotesById(id){
     if(id > 99) throw new Error("404");
     return quotes.find((item) => item.id === id);
 }
+
+export async function addQuote(text, author){
+    const idd = quotes.length;
+    const quote = {id: idd +1, text: text, author: author};
+    quotes.push(quote);
+    return quote;
+}

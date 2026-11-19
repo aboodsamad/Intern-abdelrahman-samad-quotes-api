@@ -7,4 +7,5 @@ router.get("/", getQuotes);
 router.get("/:id", getQuote);
 router.post("/", validateQuote, createQuote);
 
+
 export default router;

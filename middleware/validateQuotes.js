@@ -3,4 +3,5 @@ export function validateQuote(req, res, next) {
   if (!text || !author)
     return res.status(400).json({ error: "text and author are required" });
   next();
+  
 }
