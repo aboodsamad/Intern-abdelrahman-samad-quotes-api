@@ -17,7 +17,7 @@ export function getQuotesById(id){
 
 export async function addQuote(text, author){
     const idd = quotes.length;
-    const quote = {id: idd +1, text: text, author: author};
+    const quote = {id: idd , text: text, author: author};
     quotes.push(quote);
     return quote;
 }
