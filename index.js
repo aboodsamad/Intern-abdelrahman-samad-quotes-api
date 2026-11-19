@@ -1,6 +1,7 @@
 import express from "express";
 
-import { getAllQuotes, getQuotesById } from "./quotes.js";
+import { getAllQuotes, getQuotesById } from "./data/quotes.js";
+import { validateQuote } from "./middleware/validateQuotes.js";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -11,13 +12,6 @@ app.use((req, res, next) => {
   console.log(req.method, req.url);
   next();
 });
-
-function validateQuote(req, res, next) {
-  const { text, author } = req.body;
-  if (!text || !author)
-    return res.status(400).json({ error: "text and author are required" });
-  next();
-}
 
 app.get("/quotes", (req, res) => {
   res.json(getAllQuotes());
