@@ -14,10 +14,3 @@ export function getQuotesById(id){
     if(id > 99) throw new Error("404");
     return quotes.find((item) => item.id === id);
 }
-
-export async function fetchQuote(id){
-    if(id > 99) throw new Error("404");
-    await sleep(1000);
-    return {id, text: " stay up "};
-    
-}

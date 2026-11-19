@@ -1,4 +1,4 @@
-import { getAllQuotes, getQuotesById } from "../data/quotes";
+import { getAllQuotes, getQuotesById } from "../data/quotes.js";
 
 export function getQuotes(req, res) {
   res.json(getAllQuotes());
