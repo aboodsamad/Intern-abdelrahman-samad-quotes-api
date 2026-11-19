@@ -5,6 +5,6 @@ import { validateQuote } from "../middleware/validateQuotes";
 const router = express.Router();
 router.get("/", getQuotes);
 router.get("/:id", getQuote);
-router.post("/", createQuote);
+router.post("/", validateQuote, createQuote);
 
 export default router;
