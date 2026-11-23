@@ -1,4 +1,4 @@
-import { getAllQuotes, getQuotesById, addQuote } from "../data/quotes.js";
+import { getAllQuotes, getQuotesById, addQuote, changeQuote, removeQuote} from "../data/quotes.js";
 
 export function getQuotes(req, res) {
   res.json(getAllQuotes());
@@ -18,4 +18,18 @@ export async function createQuote(req, res) {
   const {text, author} = req.body;
   const quote = await addQuote(text, author);
   return res.status(201).json({quote});
+}
+
+export async function updateQuote(req , res){
+  const id = Number(req.params.id);
+  const text = req.body.text;
+  const quotes = await changeQuote(id, text);
+  return res.status(201).json({quotes});
+}
+
+export async function deleteQuote(req, res){
+  const id = Number(req.params.id);
+  const quotes = await removeQuote(id);
+  return res.status(201).json({quotes}); 
+
 }
