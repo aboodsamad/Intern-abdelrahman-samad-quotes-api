@@ -1,7 +1,3 @@
-import { text } from "node:stream/consumers";
-import test from "node:test";
-import { setTimeout as sleep } from "node:timers/promises";
-
 const quotes = [
   { id: 1, text: "Stay hungry, stay foolish", author: "Steve Jobs" },
   { id: 2, text: "Talk is cheap, show me the code", author: "Linus Torvalds" },
@@ -16,7 +12,7 @@ const quotes = [
     }
 
     export async function addQuote(text, author){
-        const id = quotes.length + 1;
+        const id = Math.max(0, ...quotes.map(q => q.id)) + 1;
         const quote = {id: id , text: text, author: author};
         quotes.push(quote);
         return quote;
@@ -24,13 +20,13 @@ const quotes = [
 
     export async function changeQuote(id , text){
         const quote = quotes.find(p => p.id === id);
+        if(!quote) return undefined;
         quote.text = text;
-        return quotes;
+        return quote;
     }
 
     export async function removeQuote(id){
         const index = quotes.findIndex(p => p.id === id);
         if(index === -1) return undefined;
-        quotes.splice(index, 1);
-        return quotes;
+        return quotes.splice(index, 1);
     }
