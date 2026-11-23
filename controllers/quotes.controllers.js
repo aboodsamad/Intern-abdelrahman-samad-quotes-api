@@ -6,7 +6,6 @@ export function getQuotes(req, res) {
 
 export function getQuote(req, res) {
   const id = Number(req.params.id);
-  console.log(id);
   if (isNaN(id)) return res.status(400).json({ error: " Invalid id" });
 
   const quote = getQuotesById(Number(id));
@@ -22,9 +21,9 @@ export async function createQuote(req, res) {
 
 export async function updateQuote(req , res){
   const id = Number(req.params.id);
-  const text = req.body.text;
+  const text = req.body?.text;
   const quotes = await changeQuote(id, text);
-  return res.status(201).json({quotes});
+  return res.status(200).json({quotes});
 }
 
 export async function deleteQuote(req, res){
