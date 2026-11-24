@@ -1,5 +1,6 @@
 import { quotes } from "../repositories/quotes.repositories.js";
 
+
 export const getAllQuotes = () => quotes;
 
 export const getQuotesById = (id) => quotes.find((p) => p.id === id);
