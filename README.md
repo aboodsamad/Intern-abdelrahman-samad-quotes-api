@@ -4,11 +4,11 @@ A simple REST API I built with Node.js and Express. You can get, add, edit and d
 
 Endpoints
 
-GET /quotes - get all quotes
-GET /quotes/:id - get one quote
-POST /quotes - add a quote (send text and author as JSON)
-PUT /quotes/:id - update a quote (send text and author as JSON)
-DELETE /quotes/:id - delete a quote
+-GET /quotes - get all quotes
+-GET /quotes/:id - get one quote
+-POST /quotes - add a quote (send text and author as JSON)
+-PUT /quotes/:id - update a quote (send text and author as JSON)
+-DELETE /quotes/:id - delete a quote
 
 Features
 
